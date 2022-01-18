@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: podinfo
+  namespace: flux-system
 spec:
   minReadySeconds: 3
   revisionHistoryLimit: 5
@@ -72,4 +73,3 @@ spec:
           requests:
             cpu: 100m
             memory: 64Mi
-            
