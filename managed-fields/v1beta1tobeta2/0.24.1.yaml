@@ -1,0 +1,54 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  creationTimestamp: "2022-01-18T11:47:05Z"
+  generation: 1
+  labels:
+    kustomize.toolkit.fluxcd.io/name: flux-system
+    kustomize.toolkit.fluxcd.io/namespace: flux-system
+  managedFields:
+  - apiVersion: image.toolkit.fluxcd.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          f:kustomize.toolkit.fluxcd.io/name: {}
+          f:kustomize.toolkit.fluxcd.io/namespace: {}
+      f:spec:
+        f:image: {}
+        f:interval: {}
+        f:secretRef:
+          f:name: {}
+    manager: kustomize-controller
+    operation: Apply
+    time: "2022-01-18T11:47:05Z"
+  - apiVersion: image.toolkit.fluxcd.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:canonicalImageName: {}
+        f:conditions: {}
+        f:observedGeneration: {}
+    manager: image-reflector-controller
+    operation: Update
+    time: "2022-01-18T11:47:06Z"
+  name: podinfo
+  namespace: flux-system
+  resourceVersion: "5249"
+  uid: c5023ba0-15b8-4a0a-8e0c-b47b102b6e76
+spec:
+  image: ghcr.io/stefanprodan/podinfo
+  interval: 1m0s
+  secretRef:
+    name: regcred
+status:
+  canonicalImageName: ghcr.io/stefanprodan/podinfo
+  conditions:
+  - lastTransitionTime: "2022-01-18T11:47:06Z"
+    message: 'GET https://ghcr.io/token?scope=repository%3Astefanprodan%2Fpodinfo%3Apull&service=ghcr.io:
+      DENIED: denied'
+    reason: ReconciliationFailed
+    status: "False"
+    type: Ready
+  observedGeneration: 1
