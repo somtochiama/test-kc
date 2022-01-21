@@ -1,23 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: keycloak
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: nginx-internal
+    nginx.ingress.kubernetes.io/enable-owasp-core-rules: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: 50m
+  name: test-ingress
+  namespace: devops
 spec:
-  ingressClassName: internal
-  # tls:
-  #   - hosts:
-  #     - keycloak.hephy.pro
-  #     secretName: keycloak-hephy-pro
   rules:
-  - host: keycloak.hephy.pro
+  - host: foo.bar.test
     http:
       paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: keycloak
-              port:
-                number: 8080
+      - backend:
+          service:
+            name: test-svc
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
