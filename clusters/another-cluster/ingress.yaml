@@ -5,6 +5,9 @@ metadata:
     kubernetes.io/ingress.class: nginx-internal
     # nginx.ingress.kubernetes.io/enable-owasp-core-rules: "true"
     # nginx.ingress.kubernetes.io/proxy-body-size: 50m
+  labels:
+    me: "you"
+    you: "me"
   name: test-ingress
   namespace: devops
 spec:
