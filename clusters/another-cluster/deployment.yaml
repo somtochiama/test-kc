@@ -5,8 +5,8 @@ metadata:
   namespace: flux-system
   annotations:
     kubernetes.io/ingress.class: nginx-internal-${internal}
-  # labels:
-    # kubernetes.io/ingress.class: nginx-internal-${internal}
+  labels:
+    kubernetes.io/ingress.class: nginx-internal-${internal}
 spec:
   minReadySeconds: 3
   revisionHistoryLimit: 5
