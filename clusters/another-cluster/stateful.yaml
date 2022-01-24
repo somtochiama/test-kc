@@ -3,6 +3,7 @@ kind: StatefulSet
 metadata:
   labels:
     app.kubernetes.io/component: rabbit
+    rabbit: mq
     app.kubernetes.io/created-by: kustomization-controller
     app.kubernetes.io/managed-by: fluxcd
     app.kubernetes.io/name: rabbitmq
@@ -14,6 +15,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/component: rabbit
+      rabbit: mq
       app.kubernetes.io/created-by: kustomization-controller
       app.kubernetes.io/managed-by: fluxcd
       app.kubernetes.io/name: rabbitmq
@@ -28,6 +30,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/component: rabbit
+        rabbit: mq
         app.kubernetes.io/created-by: kustomization-controller
         app.kubernetes.io/managed-by: fluxcd
         app.kubernetes.io/name: rabbitmq
