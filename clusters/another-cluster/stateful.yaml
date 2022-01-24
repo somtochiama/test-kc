@@ -4,7 +4,6 @@ metadata:
   labels:
     app.kubernetes.io/component: rabbit
     app.kubernetes.io/created-by: kustomization-controller
-    app.kubernetes.io/instance: rabbitmq-${environment}
     app.kubernetes.io/managed-by: fluxcd
     app.kubernetes.io/name: rabbitmq
     app.kubernetes.io/part-of: abc
@@ -16,7 +15,6 @@ spec:
     matchLabels:
       app.kubernetes.io/component: rabbit
       app.kubernetes.io/created-by: kustomization-controller
-      app.kubernetes.io/instance: rabbitmq-${environment}
       app.kubernetes.io/managed-by: fluxcd
       app.kubernetes.io/name: rabbitmq
       app.kubernetes.io/part-of: abc
@@ -31,7 +29,6 @@ spec:
       labels:
         app.kubernetes.io/component: rabbit
         app.kubernetes.io/created-by: kustomization-controller
-        app.kubernetes.io/instance: rabbitmq-${environment}
         app.kubernetes.io/managed-by: fluxcd
         app.kubernetes.io/name: rabbitmq
         app.kubernetes.io/part-of: abc
