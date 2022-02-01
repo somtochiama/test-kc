@@ -39,7 +39,7 @@ spec:
   version: ${KUBERNETES_VERSION}
   networkPolicy: azure
   networkPlugin: azure
-  sku: Paid
+  # sku: Paid
   loadBalancerProfile:
     managedOutboundIPs: 6
     idleTimeoutInMinutes: 9
