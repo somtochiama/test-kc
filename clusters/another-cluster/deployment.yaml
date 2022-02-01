@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: podinfo
+  name: ${CLUSTER_NAME}
   namespace: flux-system
   annotations:
     kubernetes.io/ingress.class: nginx-internal-${internal}
