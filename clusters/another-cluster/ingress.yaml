@@ -9,7 +9,7 @@ metadata:
     me: "you"
     you: "me"
   name: test-ingress
-  namespace: devops
+  namespace: default
 spec:
   rules:
   - host: foo.bar.test
