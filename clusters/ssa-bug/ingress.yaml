@@ -18,7 +18,14 @@ spec:
                   name: http
             path: /
             pathType: Prefix
-  tls:
-    - hosts:
-        - tls.internal
-      secretName: test
+    - host: host2.internal
+      http:
+        paths:
+          - backend:
+              service:
+                name: podinfo
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
+            
