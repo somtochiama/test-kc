@@ -1,0 +1,56 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  creationTimestamp: "2022-01-18T11:04:18Z"
+  generation: 6
+  labels:
+    kustomize.toolkit.fluxcd.io/name: flux-system
+    kustomize.toolkit.fluxcd.io/namespace: flux-system
+  managedFields:
+  - apiVersion: image.toolkit.fluxcd.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          f:kustomize.toolkit.fluxcd.io/name: {}
+          f:kustomize.toolkit.fluxcd.io/namespace: {}
+      f:spec:
+        f:image: {}
+        f:interval: {}
+    manager: kustomize-controller
+    operation: Apply
+    time: "2022-01-18T11:11:10Z"
+  - apiVersion: image.toolkit.fluxcd.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:canonicalImageName: {}
+        f:conditions: {}
+        f:lastScanResult:
+          .: {}
+          f:scanTime: {}
+          f:tagCount: {}
+        f:observedGeneration: {}
+    manager: image-reflector-controller
+    operation: Update
+    time: "2022-01-18T11:05:55Z"
+  name: podinfo
+  namespace: flux-system
+  resourceVersion: "27432"
+  uid: 057e4bc7-0ab8-41e3-bd08-f756e603f592
+spec:
+  image: ghcr.io/stefanprodan/podinfo
+  interval: 1m0s
+status:
+  canonicalImageName: ghcr.io/stefanprodan/podinfo
+  conditions:
+  - lastTransitionTime: "2022-01-18T11:11:50Z"
+    message: successful scan, found 22 tags
+    reason: ReconciliationSucceeded
+    status: "True"
+    type: Ready
+  lastScanResult:
+    scanTime: "2022-01-18T11:11:50Z"
+    tagCount: 22
+  observedGeneration: 6
