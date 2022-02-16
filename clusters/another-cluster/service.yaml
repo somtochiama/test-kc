@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/enable-owasp-core-rules: "true"
     # nginx.ingress.kubernetes.io/proxy-body-size: 50ms
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: podinfo
   ports:
