@@ -11,14 +11,14 @@ parameters:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-name: influxdb-volume
+  name: influxdb-volume
 labels:
   kustomize.toolkit.fluxcd.io/prune: disabled
 spec:
-storageClassName: slow
-accessModes:
-  - ReadWriteOnce
-volumeMode: Filesystem
-resources:
-  requests:
-    storage: 10Gi
+  storageClassName: slow
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 10Gi
