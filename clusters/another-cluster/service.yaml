@@ -9,6 +9,7 @@ metadata:
     # nginx.ingress.kubernetes.io/proxy-body-size: 50ms
 spec:
   type: LoadBalancer
+  externalTrafficPolicy: Local
   selector:
     app: podinfo
   ports:
