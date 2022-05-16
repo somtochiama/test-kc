@@ -2,6 +2,7 @@ apiVersion: kadalu-operator.storage/v1alpha1
 kind: KadaluStorage
 metadata:
   name: kadula-pool-1
+  namespace: kadalu
 spec:
   type: Replica3
   storage:
