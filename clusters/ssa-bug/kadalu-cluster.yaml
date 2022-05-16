@@ -1,0 +1,13 @@
+apiVersion: kadalu-operator.storage/v1alpha1
+kind: KadaluStorage
+metadata:
+  name: kadula-pool-1
+spec:
+  type: Replica3
+  storage:
+    - node: node1
+      device: /dev/vg00/kadalu
+    - node: node2
+      device: /dev/vg00/kadalu
+    - node: node3
+      device: /dev/vg00/kadalu
