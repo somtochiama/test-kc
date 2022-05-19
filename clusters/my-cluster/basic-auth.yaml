@@ -1,22 +1,33 @@
 apiVersion: v1
 data:
-    password: ENC[AES256_GCM,data:Wuf7VEG5UpyV3x6s,iv:mOcgLcjpb/W7k+ifpthnwIFFKVK61jfVIz52qWZILTQ=,tag:gya0yP69o6HOCSUaHKictw==,type:str]
-    user: ENC[AES256_GCM,data:68oUnmapQoY=,iv:iZKeGKWp+NjX8LU/JEq07SCVAVh02TSroEOCK8JktGY=,tag:mLR2Ysfft5S7Kw/YBq+Y6Q==,type:str]
+    .dockerconfigjson: ENC[AES256_GCM,data:bo88/zaUIBMwRE+dQDEE3C5+Ox8UGaDQI/aNjEm0IhbJglVdatHtuIpY9ernropME3+5+l51n6xXQ2ZTOnj/MGOO+8WDnpQUN6OrpGMJREKrMBFnEbOUlULdGzacKUVq75ROuXn5nXEUKxib52EJYVCDXVwStixwko91dssvqD7z+OlnWXVIxL7hhk7YxZBBp8ybK9cAimP3zf4kCbu5lbY49/KCkNjJFqwPzw==,iv:GQUQZqJtff2S9DD19e7EUhiHCeQYmEwwg3DvoxZPHGI=,tag:BlIl9+reFMFnCKNBV2Gbqw==,type:str]
 kind: Secret
 metadata:
-    creationTimestamp: null
-    name: basic-auth
-    namespace: default
+    creationTimestamp: '2022-05-19T12:44:12Z'
+    name: docker-secret
+    namespace: flux-system
+    resourceVersion: "63016"
+    uid: 48f39cb5-a900-42f8-8532-9d9bb285ee25
+type: kubernetes.io/dockerconfigjson
 sops:
     kms: []
-    gcp_kms:
-    -   resource_id: projects/dx-somtoxhi/locations/global/keyRings/test-flux-mt/cryptoKeys/test-flux-mt
-        created_at: '2022-04-21T11:19:19Z'
-        enc: CiQAEFZyG7kqmU3n4cFNHJNCjzWHyRpfC1n3oHjHPqe4+ATa8WESSQB288HYRbyl+d37Wz/cyP7oxuzO4OO62MvUj34A57lwaphcOgf9qhn0W6loVirbz1j2OCr13DzI8XaTVchFmlZPHB/cV4goIx0=
+    gcp_kms: []
     azure_kv: []
     hc_vault: []
-    lastmodified: '2022-04-21T11:19:21Z'
-    mac: ENC[AES256_GCM,data:AVtOVgvWy2UXGpvlkPUelqATdufv01ZYqs4kBirgLOECn8Lkq7n+I2OXzHXID1EGA1QaonAh2qC7zs5P6cFPXI4jpy09nfZ4y8XjjNbFeG96iKYCfre8KgXABdIboFNpTbOnRzR+57NLhBx3xzwubL6nnivvR70vIemFwtRnKIc=,iv:i7dE7C1poLfIw5SwdFIiKuJ4vGJg1Rc9Rwh0gCVu6Pg=,tag:Td9Sm4m553Q+dBoVXOYMsw==,type:str]
-    pgp: []
+    lastmodified: '2022-05-19T13:25:14Z'
+    mac: ENC[AES256_GCM,data:TYQVf5o6sv1BoMrf4bgKIeuYHyt2c35yAcnfrwVFfcCT6ajiGzGMo2lR3a03e8XVp3GQ0OtdU3xoLJQWTfxNH7T01E/IjX3nkXcJwEIjpqcgeMXg8PdjgmRphMB+aI3q3OoGIh1B0oBb+ZHz4TDVTDcHlgkydUA+qhG0I04QY9E=,iv:0sH5cEBVoGs+TjmrvPuWJfDM+e5kQNCJUfZyoKshWWs=,tag:z6HU/CRaetNpf4KbOBIWjQ==,type:str]
+    pgp:
+    -   created_at: '2022-05-19T13:25:14Z'
+        enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hIwDXFUltYFwV4MBBACCYCJgG9yqUsaFfghbezBOx6lXs/4AgcNTJVK9dBCksag7
+            F6gMTtRdqxCIM0ywdgRwWJyl27cf9cEDuG5D1ETIV3h0J5cC6bEURSUeVdyc/G3l
+            QlcXJ0aZnUZ6mpcT4RAWa6tbtMYrI2fwVRHWXaBgqZrR5z82mJhVU4jsna/DktJe
+            Af7qkMS0vcayvk1fiCCN287l39RtaQ531oFdhAl9hIQIBXc+/v9/pmZB/y2AvWxi
+            L1WxUSqEoCeIL0nGtdRyZzy0yEYlu6Zzpc5FDTPJOZl/FD+1ViEW376pic30Xw==
+            =pg6A
+            -----END PGP MESSAGE-----
+        fp: D7229043384BCC60326C6FB9D8720D957C3D3074
     encrypted_regex: ^(data|stringData)$
     version: 3.6.1
