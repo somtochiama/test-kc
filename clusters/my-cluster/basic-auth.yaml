@@ -3,11 +3,8 @@ data:
     .dockerconfigjson: ENC[AES256_GCM,data:bo88/zaUIBMwRE+dQDEE3C5+Ox8UGaDQI/aNjEm0IhbJglVdatHtuIpY9ernropME3+5+l51n6xXQ2ZTOnj/MGOO+8WDnpQUN6OrpGMJREKrMBFnEbOUlULdGzacKUVq75ROuXn5nXEUKxib52EJYVCDXVwStixwko91dssvqD7z+OlnWXVIxL7hhk7YxZBBp8ybK9cAimP3zf4kCbu5lbY49/KCkNjJFqwPzw==,iv:GQUQZqJtff2S9DD19e7EUhiHCeQYmEwwg3DvoxZPHGI=,tag:BlIl9+reFMFnCKNBV2Gbqw==,type:str]
 kind: Secret
 metadata:
-    creationTimestamp: '2022-05-19T12:44:12Z'
     name: docker-secret
     namespace: flux-system
-    resourceVersion: "63016"
-    uid: 48f39cb5-a900-42f8-8532-9d9bb285ee25
 type: kubernetes.io/dockerconfigjson
 sops:
     kms: []
