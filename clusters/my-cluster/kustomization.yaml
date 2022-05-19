@@ -3,8 +3,8 @@ kind: Kustomization
 namespace: default
 secretGenerator:
   - name: token
-    type: kubernetes.io/dockerconfigjson
+    # type: kubernetes.io/dockerconfigjson
     options:
       disableNameSuffixHash: true
     files:
-    - .dockerconfigjson=creds.json.encrypted
+    - .dockerconfigjson=creds.json
