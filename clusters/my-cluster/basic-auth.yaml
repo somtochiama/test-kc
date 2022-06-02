@@ -1,30 +1,22 @@
 apiVersion: v1
 data:
-    .dockerconfigjson: ENC[AES256_GCM,data:bo88/zaUIBMwRE+dQDEE3C5+Ox8UGaDQI/aNjEm0IhbJglVdatHtuIpY9ernropME3+5+l51n6xXQ2ZTOnj/MGOO+8WDnpQUN6OrpGMJREKrMBFnEbOUlULdGzacKUVq75ROuXn5nXEUKxib52EJYVCDXVwStixwko91dssvqD7z+OlnWXVIxL7hhk7YxZBBp8ybK9cAimP3zf4kCbu5lbY49/KCkNjJFqwPzw==,iv:GQUQZqJtff2S9DD19e7EUhiHCeQYmEwwg3DvoxZPHGI=,tag:BlIl9+reFMFnCKNBV2Gbqw==,type:str]
+    token: ENC[AES256_GCM,data:gpEpndX8M788gT44,iv:L9MLo98Oo4LTfAEd3ZbxxqIKDO/k88BlgRibtN+Hm/U=,tag:ov+G8AN9LnaykZKgx/5qYA==,type:str]
 kind: Secret
 metadata:
-    name: docker-secret
-    namespace: flux-system
-type: kubernetes.io/dockerconfigjson
+    creationTimestamp: null
+    name: msteams
 sops:
     kms: []
     gcp_kms: []
-    azure_kv: []
+    azure_kv:
+    -   vault_url: https://fluxcd-128015981736479d.vault.azure.net
+        name: sops-cluster0
+        version: ba1cb910604140ecab3ab6249364614a
+        created_at: '2022-06-02T04:56:17Z'
+        enc: TcodqGrtX3uHWo54Kdj0GttOSkGQj4b2UNa_s4ok63mWPVFM2JjFIOEbrUQgSmjwgJLMNGBPBwJVWwUAucBzrYHKMHYPDrj-_EMDcMe9MOl6yf1i5ymqBFucSNsB5JcrPAjyswFXuOPKZqJGPXnpkkZvxSa99e6jRUkaGZR3R0-UlsCUR3ppwqEZGoTqthoOy0Dk9T2uy23l91JJvTY_OuBT2iDHeIHBs29GlOotmoY_mx_wrFm6hob9r5wWgMq8V3XFGx4xA8ovSpPUzFJPUDp8H0pP-xxHHNmCrhe4yo2gGlFa19IJC5gItdkhO2nC-_LuEmlX0_X3oAmIsIisYg
     hc_vault: []
-    lastmodified: '2022-05-19T13:25:14Z'
-    mac: ENC[AES256_GCM,data:TYQVf5o6sv1BoMrf4bgKIeuYHyt2c35yAcnfrwVFfcCT6ajiGzGMo2lR3a03e8XVp3GQ0OtdU3xoLJQWTfxNH7T01E/IjX3nkXcJwEIjpqcgeMXg8PdjgmRphMB+aI3q3OoGIh1B0oBb+ZHz4TDVTDcHlgkydUA+qhG0I04QY9E=,iv:0sH5cEBVoGs+TjmrvPuWJfDM+e5kQNCJUfZyoKshWWs=,tag:z6HU/CRaetNpf4KbOBIWjQ==,type:str]
-    pgp:
-    -   created_at: '2022-05-19T13:25:14Z'
-        enc: |
-            -----BEGIN PGP MESSAGE-----
-
-            hIwDXFUltYFwV4MBBACCYCJgG9yqUsaFfghbezBOx6lXs/4AgcNTJVK9dBCksag7
-            F6gMTtRdqxCIM0ywdgRwWJyl27cf9cEDuG5D1ETIV3h0J5cC6bEURSUeVdyc/G3l
-            QlcXJ0aZnUZ6mpcT4RAWa6tbtMYrI2fwVRHWXaBgqZrR5z82mJhVU4jsna/DktJe
-            Af7qkMS0vcayvk1fiCCN287l39RtaQ531oFdhAl9hIQIBXc+/v9/pmZB/y2AvWxi
-            L1WxUSqEoCeIL0nGtdRyZzy0yEYlu6Zzpc5FDTPJOZl/FD+1ViEW376pic30Xw==
-            =pg6A
-            -----END PGP MESSAGE-----
-        fp: D7229043384BCC60326C6FB9D8720D957C3D3074
+    lastmodified: '2022-06-02T04:56:19Z'
+    mac: ENC[AES256_GCM,data:WDqaHoClNbAiXzzazu69AK6tuNgVQlfQGizCE5yKaRe8+HwxcQOt8NphxTojhnCBHJjHJCVNncjkec3AQ5jqGsrfiBzKvk608M9ElGOkOtUANoL52FOnJ/zEGA29IrfdoBaJ7bmzlZwHsry/0odBQmgyNGo0qJJ/8Es2kIw4nK4=,iv:EH7ExE3r+s1zcatG0pD50JWD/e1DwuEcSFNDwoO12Ms=,tag:eKzdY6H0th8QOSRZMub9Lw==,type:str]
+    pgp: []
     encrypted_regex: ^(data|stringData)$
     version: 3.6.1
