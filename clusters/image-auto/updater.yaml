@@ -15,9 +15,9 @@ metadata:
 spec:
   imageRepositoryRef:
     name: frontend-deployer
-  # filterTags:
-  #   pattern: "^${tracking_branch}-[a-f0-9]+-(?P<ts>[0-9]+)"
-  #   extract: '$ts'
+  filterTags:
+    pattern: "^${tracking_branch}-[a-f0-9]+-(?P<ts>[0-9]+)"
+    extract: '$ts'
   policy:
     semver:
       range: 1.0.x
