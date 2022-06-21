@@ -35,14 +35,14 @@ spec:
   git:
     checkout:
       ref:
-        branch: ${branch}
+        branch: main
     commit:
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
       messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
     push:
-      branch: ${branch}
+      branch: main
   update:
     path: ./ks
     strategy: Setters
