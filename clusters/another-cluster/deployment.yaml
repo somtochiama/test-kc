@@ -73,3 +73,18 @@ spec:
           requests:
             cpu: 100m
             memory: 64Mi
+      initContainers:
+      - command:
+          - /bin/sh
+          - -c
+        args:
+          - azcopy login --identity --identity-client-id 6287c590-3876-4e69-8dc4-89aceb004458 && azcopy copy https://testfluxsas.blob.core.windows.net/testsas/* /var/data
+        image: datenbetrieb/azcopy
+        name: data-init
+        volumeMounts: #### <-- our `container`, in the same pod, also mounts this volume
+        - mountPath: /var/data
+          mountPropagation: None
+          name: data-init
+      volumes:
+      - name: data-init
+        emptyDir: {}
