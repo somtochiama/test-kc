@@ -4,6 +4,7 @@ metadata:
   name: frontend-deployer
   namespace: flux-system
 spec:
+  force: true
   interval: 1m0s
   path: ./clusters/image-auto
   prune: true
