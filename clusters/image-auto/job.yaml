@@ -1,14 +1,20 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: perl-job
+  name: testjob
   namespace: flux-system
 spec:
+  ttlSecondsAfterFinished: 300
+  backoffLimit: 180
   template:
     spec:
+      serviceAccountName: kustomize-controller
       containers:
-      - name: pi
-        image: perl:latest
-        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+        - name: kubectl
+          image: "bitnami/kubectl"
+          command:
+            - /bin/sh
+            - -c
+            - |
+              sleep 1; if [ "$(kubectl get cm test -n default -o jsonpath={.data.dummy})" = "True" ]; then exit 0; fi; sleep 5; exit 1;
       restartPolicy: Never
-  backoffLimit: 4
