@@ -8,5 +8,5 @@ spec:
   interval: 1m0s
   provider: generic
   ref:
-    tag: 6.0.3
+    tag: 6.0.3 # {"$imagepolicy": "flux-system:podinfo:tag"}
   url: oci://ghcr.io/somtochiama/charts/podinfo
