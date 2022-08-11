@@ -10,13 +10,23 @@ spec:
       chart: ./charts/podinfo
       version: '6.x.x'
       sourceRef:
-        kind: GitRepository
-        name: podinfo2
+        kind: HelmRepository
+        name: podinfo
         namespace: flux-system
       interval: 1m
       reconcileStrategy: Revision
   values:
     replicaCount: 2
+---
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: podinfo
+  namespace: default
+spec:
+  interval: 5m0s
+  url: https://stefanprodan.github.io/podinfo
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
@@ -158,7 +168,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: podinfo-8
+  name: podinfo-87
   namespace: default
 spec:
   interval: 1m
@@ -179,7 +189,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: podinfo-11
+  name: podinfo-118
   namespace: default
 spec:
   interval: 1m
@@ -200,7 +210,133 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: podinfo-12
+  name: podinfo-912
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./charts/podinfo
+      version: '6.x.x'
+      sourceRef:
+        kind: GitRepository
+        name: podinfo2
+        namespace: flux-system
+      interval: 1m
+      reconcileStrategy: Revision
+  values:
+    replicaCount: 2
+---
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo-312
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./charts/podinfo
+      version: '6.x.x'
+      sourceRef:
+        kind: GitRepository
+        name: podinfo2
+        namespace: flux-system
+      interval: 1m
+      reconcileStrategy: Revision
+  values:
+    replicaCount: 2
+---
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo-172
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./charts/podinfo
+      version: '6.x.x'
+      sourceRef:
+        kind: GitRepository
+        name: podinfo2
+        namespace: flux-system
+      interval: 1m
+      reconcileStrategy: Revision
+  values:
+    replicaCount: 2
+---
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo-117
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./charts/podinfo
+      version: '6.x.x'
+      sourceRef:
+        kind: GitRepository
+        name: podinfo2
+        namespace: flux-system
+      interval: 1m
+      reconcileStrategy: Revision
+  values:
+    replicaCount: 2
+---
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo-111
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./charts/podinfo
+      version: '6.x.x'
+      sourceRef:
+        kind: GitRepository
+        name: podinfo2
+        namespace: flux-system
+      interval: 1m
+      reconcileStrategy: Revision
+  values:
+    replicaCount: 2
+---
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo-112
+  namespace: default
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: ./charts/podinfo
+      version: '6.x.x'
+      sourceRef:
+        kind: GitRepository
+        name: podinfo2
+        namespace: flux-system
+      interval: 1m
+      reconcileStrategy: Revision
+  values:
+    replicaCount: 2
+---
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo-100
   namespace: default
 spec:
   interval: 1m

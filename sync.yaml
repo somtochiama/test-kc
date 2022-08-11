@@ -1,0 +1,35 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: podinfo
+  namespace: flux-system
+spec:
+  interval: 30s
+  ref:
+    branch: main
+  url: https://github.com/SomtochiAma/test-kc
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: testks
+  namespace: flux-system
+spec:
+  force: true
+  interval: 60m0s
+  path: ./ks
+  prune: true
+  # retryInterval: 2m0s
+  serviceAccountName: kustomize-controller
+  sourceRef:
+    kind: GitRepository
+    name: podinfo
+    namespace: flux-system
+  targetNamespace: flux-system
+  timeout: 30s
+  wait: true
+  # postBuild:
+  #   substitute:
+  #     # namespace: "my-namespace"
+  #     dd_commit: "bba2c2d53adeed14b838efd256c55c47490bb10e"
+  #     dd_tag: "'020220802'"

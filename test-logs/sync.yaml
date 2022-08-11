@@ -1,26 +1,28 @@
+# apiVersion: source.toolkit.fluxcd.io/v1beta2
+# kind: GitRepository
+# metadata:
+#   name: podinfo
+#   namespace: flux-system
+# spec:
+#   interval: 30s
+#   ref:
+#     branch: master
+#   url: https://github.com/stefanprodan/podinfo
+#   # https://github.com/stefanprodan/podinfo
+# ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: podinfo
+  name: podinfo-2
   namespace: flux-system
 spec:
   interval: 30s
   ref:
     branch: master
   url: https://github.com/stefanprodan/podinfo
-  # https://github.com/stefanprodan/podinfo
----
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: GitRepository
-metadata:
-  name: podinfo-2
-  namespace: flux-system
-spec:
-  interval: 30s
-  ref:
-    branch: main
-  url: https://github.com/SomtochiAma/test-kc
-  # https://github.com/stefanprodan/podinfo
+    # branch: main
+  # url: https://github.com/SomtochiAma/test-kc
+    
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
@@ -28,320 +30,533 @@ metadata:
   name: podinfo
   namespace: flux-system
 spec:
-  interval: 1m0s
+  interval: 2m0s
   path: ./kustomize
   prune: true
   sourceRef:
     kind: GitRepository
-    name: podinfo
+    name: podinfo-2
   targetNamespace: default
   # decryption:
   #   provider: sops
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-2
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./kustomize
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
-  # decryption:
-  #   provider: sops
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-3
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./kustomize
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
-  # decryption:
-  #   provider: sops
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-4
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./kustomizes
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
-  # decryption:
-  #   provider: sops
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-5
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./kustomizes
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
-  # decryption:
-  #   provider: sops
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-6
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./kustomizes
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
-  # decryption:
-  #   provider: sops
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-7
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./kustomizes
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
-  # decryption:
-  #   provider: sops
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-15
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./kustomizex
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-8
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./kustomizex
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-13
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./another-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo-2
-  targetNamespace: default
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-12
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./ssa-bug
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo-2
-  targetNamespace: default
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-9
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./my-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo-2
-  targetNamespace: default
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-10
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./my-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo-2
-  targetNamespace: default
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-11
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./my-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo-2
-  targetNamespace: default
----
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-21
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./my-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: flux-system
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-20
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./my-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo-2
-  targetNamespace: default
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-22
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./my-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: flux-system
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-23
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./kustomize
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: default
----
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-25
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./my-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: flux-system
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-24
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./my-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo-2
-  targetNamespace: default
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-30
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./my-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo
-  targetNamespace: flux-system
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: podinfo-25
-  namespace: flux-system
-spec:
-  interval: 1m0s
-  path: ./my-cluster
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: podinfo-2
-  targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-2
+#   namespace: flux-system
+# spec:
+#   interval: 2m0s
+#   path: ./kustomize
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+#   # decryption:
+#   #   provider: sops
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-3
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomize
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+#   # decryption:
+#   #   provider: sops
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-4
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomizes
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+#   # decryption:
+#   #   provider: sops
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-5
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomizes
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+#   # decryption:
+#   #   provider: sops
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-6
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomizes
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+#   # decryption:
+#   #   provider: sops
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-7
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomizes
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+#   # decryption:
+#   #   provider: sops
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-15
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomizex
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-8
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomizex
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-13
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./another-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-12
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./ssa-bug
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-9
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-10
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-11
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-21
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: flux-system
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-20
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-22
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: flux-system
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-23
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomize
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+# ---
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-25
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: flux-system
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-24
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-30
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: flux-system
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-25
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-15
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomizex
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-81
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomizex
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-132
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./another-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-122
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./ssa-bug
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-91
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-10
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-110
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-21
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: flux-system
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-20
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-22
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: flux-system
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-23
+#   namespace: flux-system
+# spec:
+#   interval: 1m0s
+#   path: ./kustomize
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: default
+# ---
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-25
+#   namespace: flux-system
+# spec:
+#   interval: 2m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: flux-system
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-242
+#   namespace: flux-system
+# spec:
+#   interval: 2m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-301
+#   namespace: flux-system
+# spec:
+#   interval: 2m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo
+#   targetNamespace: flux-system
+# ---
+# apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+# kind: Kustomization
+# metadata:
+#   name: podinfo-251
+#   namespace: flux-system
+# spec:
+#   interval: 2m0s
+#   path: ./my-cluster
+#   prune: true
+#   sourceRef:
+#     kind: GitRepository
+#     name: podinfo-2
+#   targetNamespace: default

@@ -1,0 +1,39 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: chartmuseum
+  namespace: flux-system
+spec:
+  url: https://chartmuseum.github.io/charts
+  interval: 10m
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: chartmuseum
+  namespace: flux-system
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: chartmuseum
+      version: "2.14.2"
+      sourceRef:
+        kind: HelmRepository
+        name: chartmuseum
+        namespace: flux-system
+      interval: 1m
+  values:
+    env:
+      open:
+        AWS_SDK_LOAD_CONFIG: true
+        STORAGE: amazon
+        STORAGE_AMAZON_BUCKET: "bucket-name"
+        STORAGE_AMAZON_PREFIX: ""
+        STORAGE_AMAZON_REGION: "region-name"
+    serviceAccount:
+      create: true
+      annotations:
+    kubeEtcd:
+      endpoints:
+      - '1.0.0'
