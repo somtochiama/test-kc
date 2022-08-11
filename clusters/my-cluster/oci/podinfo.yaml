@@ -8,5 +8,5 @@ spec:
   interval: 1m0s
   provider: generic
   ref:
-    semver: 6.1.x
+    tag: 6.0.3
   url: oci://ghcr.io/somtochiama/charts/podinfo
