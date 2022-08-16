@@ -30,7 +30,7 @@ spec:
     kind: HelmRelease
     name: podinfo
     namespace: default
-  wait: true
+  # wait: true
   # postBuild:
   #   substitute:
   #     # namespace: "my-namespace"
