@@ -18,9 +18,9 @@ spec:
   force: true
   interval: 60m0s
   timeout: 2m
-  path: ./cluster/myclusters/helm
+  path: ./clusters/my-cluster/helm
   prune: true
-  suspend: true
+  suspend: false
   validation: client 
   sourceRef:
     kind: GitRepository

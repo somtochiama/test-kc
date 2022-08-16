@@ -24,7 +24,7 @@ spec:
   timeout: 1m
   chart:
     spec:
-      chart: ./charts
+      chart: ./charts/podinfo
       version: '4.0.x'
       sourceRef:
         kind: GitRepository
