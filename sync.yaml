@@ -17,7 +17,7 @@ metadata:
 spec:
   interval: 10m0s
   timeout: 2m
-  path: ./clusters/my-cluster/helm
+  path: ./clusters/podinfo
   prune: true
   suspend: false
   validation: client 
@@ -26,8 +26,8 @@ spec:
     name: test-kc
     namespace: flux-system
   healthChecks:
-  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
+  - apiVersion: v1
+    kind: Pod
     name: podinfo
     namespace: default
   # wait: true
