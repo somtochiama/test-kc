@@ -20,6 +20,34 @@ metadata:
   name: podinfo
   namespace: default
 spec:
+  releaseName: httpbin
+  interval: 10m
+  timeout: 1m
+  chart:
+    spec:
+      chart: ./charts/podinfo
+      version: '4.0.x'
+      sourceRef:
+        kind: GitRepository
+        name: podinfo
+        namespace: flux-system
+      interval: 1m
+  install:
+    remediation:
+      retries: 0
+  upgrade:
+    remediation:
+      retries: 0
+  values:
+    replicaCount: 2
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo-2
+  namespace: default
+spec:
+  releaseName: httpbin
   interval: 10m
   timeout: 1m
   chart:

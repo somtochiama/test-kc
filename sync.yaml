@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: podinfo
+  name: test-kc
   namespace: flux-system
 spec:
   interval: 30s
@@ -15,8 +15,7 @@ metadata:
   name: testks
   namespace: flux-system
 spec:
-  force: true
-  interval: 60m0s
+  interval: 10m0s
   timeout: 2m
   path: ./clusters/my-cluster/helm
   prune: true
@@ -24,7 +23,7 @@ spec:
   validation: client 
   sourceRef:
     kind: GitRepository
-    name: podinfo
+    name: test-kc
     namespace: flux-system
   healthChecks:
   - apiVersion: helm.toolkit.fluxcd.io/v2beta1
