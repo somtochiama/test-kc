@@ -17,16 +17,20 @@ metadata:
 spec:
   force: true
   interval: 60m0s
-  path: ./ks
+  timeout: 2m
+  path: ./cluster/myclusters/helm
   prune: true
-  # retryInterval: 2m0s
-  serviceAccountName: kustomize-controller
+  suspend: true
+  validation: client 
   sourceRef:
     kind: GitRepository
     name: podinfo
     namespace: flux-system
-  targetNamespace: flux-system
-  timeout: 30s
+  healthChecks:
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: podinfo
+    namespace: default
   wait: true
   # postBuild:
   #   substitute:
