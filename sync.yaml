@@ -16,7 +16,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  timeout: 2m
+  timeout: 30s
   path: ./clusters/podinfo
   prune: true
   suspend: false
@@ -28,8 +28,12 @@ spec:
   healthChecks:
   - apiVersion: v1
     kind: Pod
-    name: podinfo
+    name: nginx
     namespace: default
+  images:
+  - name: nginx
+    newName: my-registry/podinfo
+    newTag: v1
   # wait: true
   # postBuild:
   #   substitute:
