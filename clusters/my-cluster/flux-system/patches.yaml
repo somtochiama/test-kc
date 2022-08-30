@@ -1,0 +1,17 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: flux-system
+  namespace: flux-system
+spec:
+  patches:
+    - target:
+        group: apps
+        version: v1
+        kind: Deployment
+        name: image-reflector-controller
+        namespace: flux-system
+      patch: |-
+        - op: add
+            path: /spec/template/spec/containers/0/args/-
+            value: --aws-autologin-for-ecr=true
